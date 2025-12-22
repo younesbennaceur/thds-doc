@@ -203,9 +203,7 @@ const ConvocationDocument = ({ data }) => (
 
       <View style={styles.mapPageContainer}>
         <Text style={styles.mapTitle}>OÙ NOUS TROUVER ?</Text>
-        <Text style={styles.addressLarge}>THDS LEARNING</Text>
-        <Text style={styles.addressLarge}>5 Rue Pleyel</Text>
-        <Text style={styles.addressLarge}>93200 SAINT DENIS</Text>
+        <Text style={styles.addressLarge}>102 rue du port 93300 Aubervilliers</Text>
         <Text style={[styles.addressSub, {marginTop: 10}]}>Métro : Carrefour Pleyel (Ligne 13)</Text>
 
         <View style={styles.mapImageContainer}>
