@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Classes de fonts personnalisées */
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
