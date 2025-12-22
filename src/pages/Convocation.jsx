@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
   // SIGNATURE (NOUVEAU STYLE)
   signatureBlock: { marginTop: 20, alignSelf: 'flex-end', width: 180, textAlign: 'center' },
   dateLocation: { fontSize: 10, marginBottom: 5 },
-  signatureBox: { height: 40, justifyContent: 'center', alignItems: 'center' }, // Plus haut pour l'image
-  signatureImage: { width: 120, height: 'auto' }, // Style de l'image
+  signatureBox: { height: 40, justifyContent: 'center', alignItems: 'center' },
+  signatureImage: { width: 120, height: 'auto' },
   signatureText: { fontSize: 8, fontStyle: 'italic', color: '#94a3b8', marginTop: 2 },
 
   // --- STYLES PAGE 2 (PLAN ACCÈS) ---
@@ -94,28 +94,6 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   mapImage: { width: '100%', height: '100%', objectFit: 'cover' },
-
-  // --- STYLES PAGE 3 (EMAIL SIMULATION) ---
-  emailFrame: { borderWidth: 1, borderColor: '#e5e7eb', borderRadius: 8, padding: 30, backgroundColor: '#fff', marginTop: 10 },
-  emailHeader: { borderBottomWidth: 1, borderBottomColor: '#f1f5f9', paddingBottom: 15, marginBottom: 15 },
-  emailSubject: { fontSize: 12, fontFamily: 'Helvetica-Bold', color: '#1e293b', marginBottom: 10 },
-  emailMetaRow: { flexDirection: 'row', marginBottom: 4 },
-  emailMetaLabel: { width: 60, fontSize: 9, color: '#64748b' },
-  emailMetaValue: { flex: 1, fontSize: 9, color: '#334155' },
-  emailBody: { fontSize: 10, lineHeight: 1.6, color: '#334155', marginBottom: 20 },
-  
-  // Signature Email
-  emailSigBlock: { marginTop: 20, borderLeftWidth: 3, borderLeftColor: '#4c1d95', paddingLeft: 10 },
-  emailSigName: { fontSize: 11, fontFamily: 'Helvetica-Bold', color: '#4c1d95' },
-  emailSigRole: { fontSize: 9, color: '#64748b', marginBottom: 5 },
-  emailSigLogo: { width: 60, height: 'auto', marginVertical: 5 },
-  emailSigContact: { fontSize: 8, color: '#64748b' },
-
-  // Pièce jointe Email
-  attachmentBox: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#f1f5f9', padding: 10, borderRadius: 6, borderWidth: 1, borderColor: '#cbd5e1', width: 250, marginTop: 20 },
-  attachmentIcon: { width: 20, height: 20, backgroundColor: '#ef4444', borderRadius: 3, marginRight: 10, alignItems: 'center', justifyContent: 'center' },
-  attachmentName: { fontSize: 9, fontFamily: 'Helvetica-Bold', color: '#334155' },
-  attachmentSize: { fontSize: 8, color: '#94a3b8' },
 
   // FOOTER GLOBAL
   footer: { position: 'absolute', bottom: 30, left: 40, right: 40, borderTopWidth: 1, borderTopColor: '#e2e8f0', paddingTop: 10, alignItems: 'center' },
@@ -162,15 +140,10 @@ const ConvocationDocument = ({ data }) => (
       <View style={{ flexDirection: 'row', gap: 20 }}>
         <View style={{ flex: 1 }}>
           <Text style={styles.sectionTitle}>Informations Pratiques</Text>
-          <Text style={[styles.infoValue, {marginBottom: 5}]}>Le lien de connexion et mot de passe (si distanciel) vous sera transmis par email 24h avant.</Text>
-          <Text style={[styles.infoValue, {marginBottom: 5}]}>Votre planning détaillé vous sera communiqué en amont.</Text>
+          <Text style={[styles.infoValue, {marginBottom: 5}]}>Seulement une cni ou pièces d’identité en cours de validité</Text>
+      
         </View>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.sectionTitle}>Matériel Requis</Text>
-          <Text style={styles.bulletPoint}>• Ordinateur (PC/Mac) avec Webcam</Text>
-          <Text style={styles.bulletPoint}>• Connexion Internet stable</Text>
-          <Text style={styles.bulletPoint}>• Casque avec micro</Text>
-        </View>
+       
       </View>
 
       <View style={{ marginTop: 15 }}>
@@ -182,12 +155,9 @@ const ConvocationDocument = ({ data }) => (
 
       <View style={styles.signatureBlock}>
         <Text style={styles.dateLocation}>Fait à 5 Rue Pleyel, 93200 Saint-Denis, le {new Date().toLocaleDateString('fr-FR')}</Text>
-        
-        {/* ICI : INSERTION DE L'IMAGE DE SIGNATURE */}
         <View style={styles.signatureBox}>
           <Image src="/signature.png" style={styles.signatureImage} />
         </View>
-        
       </View>
 
     </Page>
@@ -204,7 +174,6 @@ const ConvocationDocument = ({ data }) => (
       <View style={styles.mapPageContainer}>
         <Text style={styles.mapTitle}>OÙ NOUS TROUVER ?</Text>
         <Text style={styles.addressLarge}>102 rue du port 93300 Aubervilliers</Text>
-       
 
         <View style={styles.mapImageContainer}>
           <Image src="/map.png" style={styles.mapImage} />
@@ -217,66 +186,120 @@ const ConvocationDocument = ({ data }) => (
       </View>
     </Page>
 
-    {/* ================= PAGE 3 : COPIE EMAIL ================= */}
+    {/* ================= PAGE 3 : EMAIL GMAIL ================= */}
     <Page size="A4" style={styles.page}>
-      <View style={styles.headerContainer}>
-        <Image src="/logo.png" style={styles.logo} />
-        <View style={styles.headerInfo}>
-          <Text style={styles.companyName}>ARCHIVE COURRIEL</Text>
-          <Text style={styles.companySub}>Copie du message envoyé au stagiaire</Text>
-        </View>
+      
+      {/* HEADER GMAIL STYLE */}
+      <View style={{ backgroundColor: '#f8f9fa', padding: 10, marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+         <Image src="/gmail.png" style={styles.logo} />
       </View>
 
-      <View style={styles.emailFrame}>
-        {/* En-tête Email */}
-        <View style={styles.emailHeader}>
-          <Text style={styles.emailSubject}>Convocation Formation : {data.intituleFormation}</Text>
-          
-          <View style={styles.emailMetaRow}>
-            <Text style={styles.emailMetaLabel}>De :</Text>
-            <Text style={styles.emailMetaValue}>THDS Formation &lt;{data.contactEmail}&gt;</Text>
-          </View>
-          <View style={styles.emailMetaRow}>
-            <Text style={styles.emailMetaLabel}>À :</Text>
-            <Text style={styles.emailMetaValue}>{data.prenom} {data.nom}</Text>
-          </View>
-          <View style={styles.emailMetaRow}>
-            <Text style={styles.emailMetaLabel}>Date :</Text>
-            <Text style={styles.emailMetaValue}>{new Date().toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</Text>
-          </View>
-        </View>
+      
 
-        {/* Corps Email */}
-        <View>
-          <Text style={styles.emailBody}>Bonjour,</Text>
-          <Text style={styles.emailBody}>
-            J'ai le plaisir de vous transmettre votre convocation pour votre formation "{data.intituleFormation}" qui se déroulera du {new Date(data.dateDebut).toLocaleDateString('fr-FR')} au {new Date(data.dateFin).toLocaleDateString('fr-FR')}.
-          </Text>
-          <Text style={styles.emailBody}>
-            Vous trouverez le document officiel en pièce jointe de ce courriel.
-          </Text>
-          <Text style={styles.emailBody}>Bien à vous,</Text>
-        </View>
-
-        {/* Signature Email */}
-        <View style={styles.emailSigBlock}>
-          <Text style={styles.emailSigName}>{data.contactNom}</Text>
-          <Text style={styles.emailSigRole}>Responsable Pédagogique</Text>
-          <Image src="/logo.png" style={styles.emailSigLogo} />
-          <Text style={[styles.emailSigContact, {fontFamily: 'Helvetica-Bold', color: '#4c1d95'}]}>THDS </Text>
-          <Text style={styles.emailSigContact}>VOTRE FUTUR, NOTRE SAVOIR</Text>
-          <Text style={[styles.emailSigContact, {marginTop: 5}]}>Tél: {data.contactTel}</Text>
-          <Text style={styles.emailSigContact}>Email: {data.contactEmail}</Text>
-          <Text style={styles.emailSigContact}>Site internet: https://thds.fr</Text>
-        </View>
-
+      {/* MESSAGE CONTAINER */}
+      <View style={{ borderWidth: 1, borderColor: '#e8eaed', borderRadius: 8, overflow: 'hidden', backgroundColor: '#fff' }}>
         
+        {/* EMAIL HEADER - FROM/TO/DATE */}
+        <View style={{ backgroundColor: '#f8f9fa', paddingVertical: 12, paddingHorizontal: 16, borderBottomWidth: 1, borderBottomColor: '#e8eaed' }}>
+          
+          {/* Subject Line */}
+          <View style={{ marginBottom: 8 }}>
+            <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>Convocation Formation : {data.intituleFormation}</Text>
+          </View>
+
+          {/* Sender Info avec Avatar */}
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 8 }}>
+            {/* Avatar Circle */}
+            <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: '#7c3aed', alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
+              <Text style={{ fontSize: 14, fontFamily: 'Helvetica-Bold', color: '#fff' }}>T</Text>
+            </View>
+            
+            <View style={{ flex: 1 }}>
+              <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>THDS Formation &lt;{data.contactEmail}&gt;</Text>
+              <Text style={{ fontSize: 9, color: '#5f6368' }}>À : {data.prenom} {data.nom}</Text>
+            </View>
+
+            {/* Date à droite */}
+            <Text style={{ fontSize: 8, color: '#5f6368', textAlign: 'right' }}>
+              {new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })} à {new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+            </Text>
+          </View>
+
+          {/* Show Details Link */}
+          <Text style={{ fontSize: 8, color: '#1f2937', marginBottom: 5 }}>Afficher les détails ▼</Text>
+
+          {/* Additional Headers */}
+          <View style={{ backgroundColor: '#fff', padding: 8, marginTop: 8, borderRadius: 4 }}>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>De :</Text>
+              <Text>THDS Formation &lt;{data.contactEmail}&gt;</Text>
+            </View>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>À :</Text>
+              <Text>{data.prenom} {data.nom}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>Date :</Text>
+              <Text>{new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' })} à {new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>Objet :</Text>
+              <Text>Convocation Formation : {data.intituleFormation}</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* EMAIL BODY */}
+        <View style={{ paddingVertical: 20, paddingHorizontal: 16, backgroundColor: '#fff' }}>
+          
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>Bonjour {data.prenom},</Text>
+          
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            J'ai le plaisir de vous transmettre votre convocation pour votre formation "{data.intituleFormation}".
+          </Text>
+
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Cette formation se déroulera du {new Date(data.dateDebut).toLocaleDateString('fr-FR')} au {new Date(data.dateFin).toLocaleDateString('fr-FR')}, à partir de {data.heureDebut}.
+          </Text>
+
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Vous trouverez le document officiel de convocation en pièce jointe de ce courriel.
+          </Text>
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+Venir 15 minutes avant avec la CNI ou une pièce d’identité en cours de validité, 102 rue du Port, 93300 Aubervilliers.          </Text>
+
+          <Text style={{ fontSize: 10, fontWeight: 'bold', lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Si désistement merci de nous prévenir
+          </Text>
+           <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            En cas de question, n'hésitez pas à me contacter directement.
+          </Text>
+          
+          
+
+          <Text style={{ fontSize: 10, color: '#202124', marginBottom: 16 }}>Bien à vous,</Text>
+
+          {/* SIGNATURE */}
+          <View style={{ borderTopWidth: 1, borderTopColor: '#e8eaed', paddingTop: 12, marginTop: 16 }}>
+            <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>{data.contactNom}</Text>
+            <Text style={{ fontSize: 9, color: '#5f6368' }}>Responsable Pédagogique</Text>
+            <Text style={{ fontSize: 9, color: '#5f6368', marginTop: 8 }}>THDS Formation</Text>
+            <Text style={{ fontSize: 8, color: '#5f6368' }}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
+            <Text style={{ fontSize: 8, color: '#5f6368' }}>{data.contactTel}</Text>
+            <Text style={{ fontSize: 8, color: '#1f2937' }}>{data.contactEmail}</Text>
+            <Text style={{ fontSize: 8, color: '#5f6368' }}>https://thds.fr</Text>
+          </View>
+        </View>
+
+       
 
       </View>
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>Ceci est une copie générée automatiquement pour archivage administratif.</Text>
+      {/* FOOTER - Gmail Style */}
+      <View style={{ marginTop: 15, paddingTop: 10, borderTopWidth: 1, borderTopColor: '#dadce0', alignItems: 'center' }}>
+        <Text style={{ fontSize: 7, color: '#5f6368', textAlign: 'center' }}>Ceci est une copie d'archivage administratif du courriel envoyé le {new Date().toLocaleDateString('fr-FR')}</Text>
       </View>
+
     </Page>
 
   </Document>

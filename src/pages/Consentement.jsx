@@ -6,43 +6,8 @@ import { Link } from 'react-router-dom';
 // --- 1. STYLES PDF (THDS SYSTEM) ---
 const styles = StyleSheet.create({
   page: { padding: 40, fontFamily: 'Helvetica', fontSize: 10, color: '#334155', lineHeight: 1.5 },
-  
-  // Header Global
-  headerContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 30, borderBottomWidth: 2, borderBottomColor: '#4c1d95', paddingBottom: 15 },
   logo: { width: 50, height: 'auto' },
-  headerInfo: { textAlign: 'right' },
-  companyName: { fontSize: 18, fontWeight: 'bold', color: '#4c1d95', textTransform: 'uppercase', marginBottom: 4 },
-  companySub: { fontSize: 9, color: '#64748b', marginTop: 4 },
-
-  // --- STYLES PAGE 1 (LETTRE) ---
-  titleLetter: { fontSize: 14, fontWeight: 'bold', color: '#4c1d95', marginBottom: 20, textTransform: 'uppercase' },
   
-  recipientBlock: { marginBottom: 30, marginTop: 10 },
-  recipientText: { fontSize: 11, fontFamily: 'Helvetica-Bold', marginBottom: 2 },
-  
-  paragraph: { marginBottom: 15, textAlign: 'justify', fontSize: 10 },
-  linkBox: { backgroundColor: '#f3e8ff', padding: 15, borderRadius: 5, marginVertical: 15, borderLeftWidth: 4, borderLeftColor: '#4c1d95' },
-  linkText: { color: '#4c1d95', textDecoration: 'underline', fontSize: 10 },
-
-  signatureBlock: { marginTop: 40, borderLeftWidth: 2, borderLeftColor: '#cbd5e1', paddingLeft: 15 },
-  sigName: { fontSize: 11, fontFamily: 'Helvetica-Bold', color: '#4c1d95' },
-  sigRole: { fontSize: 9, color: '#64748b', marginBottom: 5 },
-  sigImage: { width: 100, height: 'auto', marginVertical: 5 },
-
-  // --- STYLES PAGE 2 (PREUVE FORMULAIRE) ---
-  proofHeader: { backgroundColor: '#f8fafc', padding: 20, marginBottom: 30, borderBottomWidth: 1, borderBottomColor: '#e2e8f0' },
-  proofTitle: { fontSize: 16, fontFamily: 'Helvetica-Bold', color: '#1e293b', marginBottom: 5 },
-  proofSub: { fontSize: 10, color: '#64748b' },
-
-  // Tableau de preuve style "Google Forms"
-  formTable: { borderWidth: 1, borderColor: '#e2e8f0', borderRadius: 8, overflow: 'hidden' },
-  formRow: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#e2e8f0', minHeight: 40 },
-  formLabel: { width: '35%', backgroundColor: '#f8fafc', padding: 10, fontSize: 9, fontFamily: 'Helvetica-Bold', color: '#475569', justifyContent: 'center' },
-  formValue: { width: '65%', padding: 10, fontSize: 10, color: '#1e293b', justifyContent: 'center' },
-  
-  consentBox: { backgroundColor: '#f0fdf4', padding: 15, marginTop: 20, borderRadius: 6, border: '1px solid #bbf7d0' },
-  consentText: { color: '#166534', fontSize: 10, fontFamily: 'Helvetica-Bold', textAlign: 'center' },
-
   footer: { position: 'absolute', bottom: 30, left: 40, right: 40, borderTopWidth: 1, borderTopColor: '#e2e8f0', paddingTop: 10, alignItems: 'center' },
   footerText: { fontSize: 7, color: '#94a3b8', textAlign: 'center' }
 });
@@ -51,117 +16,265 @@ const styles = StyleSheet.create({
 const ConsentementDocument = ({ data }) => (
   <Document>
     
-    {/* === PAGE 1 : LA DEMANDE === */}
-    <Page size="A4" style={styles.page}>
-      <View style={styles.headerContainer}>
-        <Image src="/logo.png" style={styles.logo} />
-        <View style={styles.headerInfo}>
-          <Text style={styles.companyName}>THDS </Text>
-          <Text style={styles.companySub}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
-          <Text style={styles.companySub}>contact@thds.fr</Text>
-        </View>
-      </View>
-
-      <View style={styles.recipientBlock}>
-        <Text style={{fontSize: 9, color:'#94a3b8', marginBottom:5}}>À l'attention de :</Text>
-        <Text style={styles.recipientText}>{data.civilite} {data.nom} {data.prenom}</Text>
-        <Text style={{fontSize: 10, color:'#334155'}}>{data.email}</Text>
-      </View>
-
-      <Text style={styles.titleLetter}>Objet : Confirmation de votre consentement</Text>
-
-      <Text style={styles.paragraph}>
-        Monsieur {data.nom},
-      </Text>
-      <Text style={styles.paragraph}>
-        Vous avez récemment complété un formulaire concernant votre désir de réaliser une formation au sein de notre organisme de formation et nous vous en remercions.
-      </Text>
-      <Text style={styles.paragraph}>
-        Avant de vous adresser plus d'informations, et conformément à l'article L.6323-8-1 du Code du travail, nous souhaitons obtenir votre consentement explicite afin de vous contacter.
-      </Text>
-
-      <View style={styles.linkBox}>
-        <Text style={{fontFamily:'Helvetica-Bold', marginBottom:5, color:'#4c1d95'}}>Action requise :</Text>
-        <Text>Si vous souhaitez être contacté, merci de cliquer sur le lien ci-dessous :</Text>
-        <Text style={styles.linkText}>https://forms.thds.fr/consentement/{data.nom.toLowerCase()}-{data.prenom.toLowerCase()}</Text>
-      </View>
-
-      <Text style={styles.paragraph}>
-        Dans le cas contraire, aucune action n'est nécessaire de votre part.
-      </Text>
-      <Text style={styles.paragraph}>
-        Vous remerciant pour votre compréhension, en espérant avoir le plaisir d'échanger avec vous prochainement.
-      </Text>
-
-      <View style={styles.signatureBlock}>
-        <Text style={{marginBottom:10}}>Bien à vous,</Text>
-        <Image src="/signature.png" style={styles.sigImage} />
-        <Text style={styles.sigName}>La Direction</Text>
-        <Text style={styles.sigRole}>THDS </Text>
-        <Text style={{fontSize:8, color:'#94a3b8'}}>Tél : 06 09 96 85 95</Text>
-      </View>
-
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>THDS  - 5 Rue Pleyel, 93200 SAINT DENIS - SIRET : 832 774 087 00023</Text>
-      </View>
-    </Page>
-
-    {/* === PAGE 2 : LA PREUVE (RÉPONSE) === */}
+    {/* === PAGE 1 : GMAIL EMAIL REQUEST === */}
     <Page size="A4" style={styles.page}>
       
-      {/* Header Preuve */}
-      <View style={{flexDirection:'row', alignItems:'center', marginBottom:20}}>
-         <Image src="/logo.png" style={{width: 60, height:'auto', marginRight: 15}} />
-         <View>
-            <Text style={{fontSize:14, fontFamily:'Helvetica-Bold', color:'#4c1d95'}}>ARCHIVE DE CONSENTEMENT</Text>
-            <Text style={{fontSize:9, color:'#64748b'}}>Preuve numérique de validation</Text>
-         </View>
+      {/* GMAIL HEADER */}
+      <View style={{ backgroundColor: '#f8f9fa', padding: 10, marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+        <Image src="/gmail.png" style={styles.logo} />
       </View>
 
-      <View style={styles.proofHeader}>
-        <Text style={styles.proofTitle}>Nouvelle notification de réponse au formulaire</Text>
-        <Text style={styles.proofSub}>Reçu le : {new Date(data.dateReponse).toLocaleDateString('fr-FR')} à 11:59</Text>
-        <Text style={styles.proofSub}>Source : Formulaire Web THDS</Text>
-      </View>
+     
 
-      <View style={styles.formTable}>
-        <View style={styles.formRow}>
-          <View style={styles.formLabel}><Text>Nom</Text></View>
-          <View style={styles.formValue}><Text>{data.nom}</Text></View>
-        </View>
-        <View style={styles.formRow}>
-          <View style={styles.formLabel}><Text>Prénom</Text></View>
-          <View style={styles.formValue}><Text>{data.prenom}</Text></View>
-        </View>
-        <View style={styles.formRow}>
-          <View style={styles.formLabel}><Text>E-mail</Text></View>
-          <View style={styles.formValue}><Text>{data.email}</Text></View>
-        </View>
-        <View style={styles.formRow}>
-          <View style={styles.formLabel}><Text>Numéro de téléphone</Text></View>
-          <View style={styles.formValue}><Text>{data.telephone}</Text></View>
-        </View>
-        <View style={[styles.formRow, {borderBottomWidth:0}]}>
-          <View style={styles.formLabel}><Text>Confirmation de votre consentement</Text></View>
-          <View style={styles.formValue}>
-            <Text style={{color:'#166534', fontFamily:'Helvetica-Bold'}}>
-              "J'autorise par la présente l'organisme de formation THDS à procéder à des appels téléphoniques, des envois de courriels, ou tout autre moyen de communication."
+      {/* MESSAGE CONTAINER */}
+      <View style={{ borderWidth: 1, borderColor: '#e8eaed', borderRadius: 8, overflow: 'hidden', backgroundColor: '#fff' }}>
+        
+        {/* EMAIL HEADER */}
+        <View style={{ backgroundColor: '#f8f9fa', paddingVertical: 12, paddingHorizontal: 16, borderBottomWidth: 1, borderBottomColor: '#e8eaed' }}>
+          
+          {/* Subject */}
+          <View style={{ marginBottom: 8 }}>
+            <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>Confirmation de votre consentement</Text>
+          </View>
+
+          {/* Sender Info with Avatar */}
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 8 }}>
+            {/* Avatar Circle - Purple */}
+            <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: '#7c3aed', alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
+              <Text style={{ fontSize: 14, fontFamily: 'Helvetica-Bold', color: '#fff' }}>T</Text>
+            </View>
+            
+            <View style={{ flex: 1 }}>
+              <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>THDS Formation &lt;contact@thds.fr&gt;</Text>
+              <Text style={{ fontSize: 9, color: '#5f6368' }}>À : {data.prenom} {data.nom}</Text>
+            </View>
+
+            {/* Date */}
+            <Text style={{ fontSize: 8, color: '#5f6368', textAlign: 'right' }}>
+              {new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })}
             </Text>
           </View>
+
+          {/* Show Details Link */}
+          <Text style={{ fontSize: 8, color: '#1f2937', marginBottom: 5 }}>Afficher les détails ▼</Text>
+
+          {/* Additional Headers */}
+          <View style={{ backgroundColor: '#fff', padding: 8, marginTop: 8, borderRadius: 4 }}>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>De :</Text>
+              <Text>THDS Formation &lt;contact@thds.fr&gt;</Text>
+            </View>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>À :</Text>
+              <Text>{data.prenom} {data.nom} &lt;{data.email}&gt;</Text>
+            </View>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>Date :</Text>
+              <Text>{new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' })} à {new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>Objet :</Text>
+              <Text>Confirmation de votre consentement</Text>
+            </View>
+          </View>
         </View>
+
+        {/* EMAIL BODY */}
+        <View style={{ paddingVertical: 20, paddingHorizontal: 16, backgroundColor: '#fff' }}>
+          
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Bonjour {data.prenom},
+          </Text>
+          
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Vous avez récemment complété un formulaire concernant votre désir de réaliser une formation au sein de notre organisme de formation et nous vous en remercions.
+          </Text>
+
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Avant de vous adresser plus d'informations, et conformément à l'article L.6323-8-1 du Code du travail, nous souhaitons obtenir votre consentement explicite afin de vous contacter.
+          </Text>
+
+          {/* Action Box - CTA Style */}
+          <View style={{ backgroundColor: '#f3e8ff', padding: 15, borderRadius: 8, marginVertical: 15, borderLeftWidth: 4, borderLeftColor: '#7c3aed' }}>
+            <Text style={{ fontSize: 10, color: '#202124', marginBottom: 10 }}>Si vous souhaitez être contacté, merci de cliquer sur le lien ci-dessous :</Text>
+            <Text style={{ fontSize: 10, color: '#4c1d95', textDecoration: 'underline', fontFamily: 'Helvetica-Bold' }}>
+              https://forms.thds.fr/consentement/{data.nom.toLowerCase()}-{data.prenom.toLowerCase()}
+            </Text>
+          </View>
+
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Dans le cas contraire, aucune action n'est nécessaire de votre part.
+          </Text>
+
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 16 }}>
+            Vous remerciant pour votre compréhension, en espérant avoir le plaisir d'échanger avec vous prochainement.
+          </Text>
+
+          <Text style={{ fontSize: 10, color: '#202124', marginBottom: 16 }}>Bien à vous,</Text>
+
+          {/* SIGNATURE */}
+          <View style={{ borderTopWidth: 1, borderTopColor: '#e8eaed', paddingTop: 12, marginTop: 16 }}>
+            <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#7c3aed' }}>La Direction</Text>
+            <Text style={{ fontSize: 9, color: '#5f6368' }}>THDS Formation</Text>
+            <Text style={{ fontSize: 9, color: '#5f6368', marginTop: 8 }}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
+            <Text style={{ fontSize: 8, color: '#5f6368' }}>06 09 96 85 95</Text>
+            <Text style={{ fontSize: 8, color: '#1f2937' }}>contact@thds.fr</Text>
+            <Text style={{ fontSize: 8, color: '#5f6368' }}>https://thds.fr</Text>
+          </View>
+        </View>
+
       </View>
 
-      <View style={styles.consentBox}>
-        <Text style={styles.consentText}>✓ CONSENTEMENT VALIDÉ ET ARCHIVÉ</Text>
+  
+
+    </Page>
+
+    {/* === PAGE 2 : GMAIL RESPONSE EMAIL === */}
+    <Page size="A4" style={styles.page}>
+      
+       <View style={{ backgroundColor: '#f8f9fa', padding: 10, marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+        <Image src="/gmail.png" style={styles.logo} />
       </View>
 
-      <View style={{marginTop: 40, alignItems:'center'}}>
-         <Text style={{fontSize:8, color:'#cbd5e1'}}>Empreinte numérique : {Math.random().toString(36).substring(7).toUpperCase()}-{Date.now()}</Text>
+      
+
+      {/* MESSAGE CONTAINER */}
+      <View style={{ borderWidth: 1, borderColor: '#e8eaed', borderRadius: 8, overflow: 'hidden', backgroundColor: '#fff' }}>
+        
+        {/* EMAIL HEADER */}
+        <View style={{ backgroundColor: '#f8f9fa', paddingVertical: 12, paddingHorizontal: 16, borderBottomWidth: 1, borderBottomColor: '#e8eaed' }}>
+          
+          {/* Subject */}
+          <View style={{ marginBottom: 8 }}>
+            <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>Nouvelle notification de réponse au formulaire</Text>
+          </View>
+
+          {/* Sender Info with Avatar */}
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 8 }}>
+            {/* Avatar Circle - Google Green */}
+            <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: '#34a853', alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
+              <Text style={{ fontSize: 14, fontFamily: 'Helvetica-Bold', color: '#fff' }}>F</Text>
+            </View>
+            
+            <View style={{ flex: 1 }}>
+              <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>Google Forms &lt;noreply@docs.google.com&gt;</Text>
+              <Text style={{ fontSize: 9, color: '#5f6368' }}>À : THDS Formation</Text>
+            </View>
+
+            {/* Date */}
+            <Text style={{ fontSize: 8, color: '#5f6368', textAlign: 'right' }}>
+              {new Date(data.dateReponse).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })}
+            </Text>
+          </View>
+
+          {/* Show Details Link */}
+          <Text style={{ fontSize: 8, color: '#1f2937', marginBottom: 5 }}>Afficher les détails ▼</Text>
+
+          {/* Additional Headers */}
+          <View style={{ backgroundColor: '#fff', padding: 8, marginTop: 8, borderRadius: 4 }}>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>De :</Text>
+              <Text>Google Forms &lt;noreply@docs.google.com&gt;</Text>
+            </View>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>À :</Text>
+              <Text>THDS Formation &lt;contact@thds.fr&gt;</Text>
+            </View>
+            <View style={{ flexDirection: 'row', marginBottom: 3, fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>Date :</Text>
+              <Text>{new Date(data.dateReponse).toLocaleDateString('fr-FR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' })} à 11:59</Text>
+            </View>
+            <View style={{ flexDirection: 'row', fontSize: 8, color: '#5f6368' }}>
+              <Text style={{ width: 45, fontFamily: 'Helvetica-Bold' }}>Objet :</Text>
+              <Text>Nouvelle notification de réponse au formulaire</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* EMAIL BODY */}
+        <View style={{ paddingVertical: 20, paddingHorizontal: 16, backgroundColor: '#fff' }}>
+          
+          <Text style={{ fontSize: 9, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+            Une nouvelle réponse à votre formulaire « Demande de Consentement pour Formation THDS »
+          </Text>
+
+          {/* Google Forms Style Table */}
+          <View style={{ backgroundColor: '#f8f9fa', marginVertical: 15, borderWidth: 1, borderColor: '#dadce0', borderRadius: 6, overflow: 'hidden' }}>
+            
+            {/* Row 1 - Nom */}
+            <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+              <View style={{ width: '40%', backgroundColor: '#f1f3f4', padding: 8 }}>
+                <Text style={{ fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#5f6368' }}>Nom</Text>
+              </View>
+              <View style={{ width: '60%', padding: 8 }}>
+                <Text style={{ fontSize: 9, color: '#202124' }}>{data.nom}</Text>
+              </View>
+            </View>
+
+            {/* Row 2 - Prénom */}
+            <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+              <View style={{ width: '40%', backgroundColor: '#f1f3f4', padding: 8 }}>
+                <Text style={{ fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#5f6368' }}>Prénom</Text>
+              </View>
+              <View style={{ width: '60%', padding: 8 }}>
+                <Text style={{ fontSize: 9, color: '#202124' }}>{data.prenom}</Text>
+              </View>
+            </View>
+
+            {/* Row 3 - Email */}
+            <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+              <View style={{ width: '40%', backgroundColor: '#f1f3f4', padding: 8 }}>
+                <Text style={{ fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#5f6368' }}>E-mail</Text>
+              </View>
+              <View style={{ width: '60%', padding: 8 }}>
+                <Text style={{ fontSize: 9, color: '#202124' }}>{data.email}</Text>
+              </View>
+            </View>
+
+            {/* Row 4 - Téléphone */}
+            <View style={{ flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
+              <View style={{ width: '40%', backgroundColor: '#f1f3f4', padding: 8 }}>
+                <Text style={{ fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#5f6368' }}>Téléphone</Text>
+              </View>
+              <View style={{ width: '60%', padding: 8 }}>
+                <Text style={{ fontSize: 9, color: '#202124' }}>{data.telephone}</Text>
+              </View>
+            </View>
+
+            {/* Row 5 - Consentement */}
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ width: '40%', backgroundColor: '#f1f3f4', padding: 8 }}>
+                <Text style={{ fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#5f6368' }}>Consentement</Text>
+              </View>
+              <View style={{ width: '60%', padding: 8 }}>
+                <Text style={{ fontSize: 9, color: '#166534', fontFamily: 'Helvetica-Bold' }}>J'autorise par la présente l'organisme de formation IDRIFORM à procéder
+à des appels téléphoniques, des envois de courriels, ou tout autre moyen
+de communication.</Text>
+              </View>
+            </View>
+
+          </View>
+
+         
+          <Text style={{ fontSize: 8, color: '#5f6368', marginTop: 15 }}>
+            Vous avez reçu cet e-mail, car vous êtes propriétaire de ce formulaire Google.
+          </Text>
+        </View>
+
+        {/* SIGNATURE - Google Style */}
+        <View style={{ backgroundColor: '#f8f9fa', paddingVertical: 12, paddingHorizontal: 16, borderTopWidth: 1, borderTopColor: '#e8eaed' }}>
+          <Text style={{ fontSize: 8, color: '#5f6368', marginBottom: 5 }}>Google Forms</Text>
+          <Text style={{ fontSize: 8, color: '#5f6368', fontStyle: 'italic' }}>Créez et analysez des sondages en ligne – C'est gratuit.</Text>
+          <Text style={{ fontSize: 8, color: '#1f2937', marginTop: 8, textDecoration: 'underline' }}>Gestion de nos préférences</Text>
+        </View>
+
       </View>
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>Document généré automatiquement par le système d'information de THDS .</Text>
+      {/* FOOTER - Gmail Style */}
+      <View style={{ marginTop: 15, paddingTop: 10, borderTopWidth: 1, borderTopColor: '#dadce0', alignItems: 'center' }}>
+        <Text style={{ fontSize: 7, color: '#5f6368', textAlign: 'center' }}>Ceci est une copie d'archivage du formulaire de consentement reçu le {new Date(data.dateReponse).toLocaleDateString('fr-FR')}</Text>
       </View>
+
     </Page>
 
   </Document>
@@ -250,8 +363,8 @@ export default function GenerateurConsentement() {
           <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 text-blue-800 text-xs">
             <p><strong>Note :</strong> Ce document génère automatiquement :</p>
             <ul className="list-disc ml-4 mt-2 space-y-1">
-                <li>Page 1 : La lettre de demande de consentement.</li>
-                <li>Page 2 : Le récapitulatif de la réponse (Preuve).</li>
+                <li>Page 1 : Email Gmail de demande de consentement.</li>
+                <li>Page 2 : Email Google Forms de réponse (Preuve).</li>
             </ul>
           </div>
 
