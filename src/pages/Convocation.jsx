@@ -131,7 +131,7 @@ const ConvocationDocument = ({ data }) => (
       <View style={styles.headerContainer}>
         <Image src="/logo.png" style={styles.logo} />
         <View style={styles.headerInfo}>
-          <Text style={styles.companyName}>THDS LEARNING</Text>
+          <Text style={styles.companyName}>THDS </Text>
           <Text style={styles.companySub}>Organisme de Formation Professionnelle</Text>
           <Text style={styles.companySub}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
           <Text style={styles.companySub}>contact@thds.fr | 06 09 96 85 95</Text>
@@ -162,7 +162,7 @@ const ConvocationDocument = ({ data }) => (
       <View style={{ flexDirection: 'row', gap: 20 }}>
         <View style={{ flex: 1 }}>
           <Text style={styles.sectionTitle}>Informations Pratiques</Text>
-          <Text style={[styles.infoValue, {marginBottom: 5}]}>Le lien de connexion (si distanciel) vous sera transmis par email 24h avant.</Text>
+          <Text style={[styles.infoValue, {marginBottom: 5}]}>Le lien de connexion et mot de passe (si distanciel) vous sera transmis par email 24h avant.</Text>
           <Text style={[styles.infoValue, {marginBottom: 5}]}>Votre planning détaillé vous sera communiqué en amont.</Text>
         </View>
         <View style={{ flex: 1 }}>
@@ -197,7 +197,7 @@ const ConvocationDocument = ({ data }) => (
       <View style={styles.headerContainer}>
         <Image src="/logo.png" style={styles.logo} />
         <View style={styles.headerInfo}>
-          <Text style={styles.companyName}>THDS LEARNING</Text>
+          <Text style={styles.companyName}>THDS </Text>
         </View>
       </View>
 
@@ -212,7 +212,7 @@ const ConvocationDocument = ({ data }) => (
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>THDS LEARNING - 5 Rue Pleyel, 93200 SAINT DENIS</Text>
+        <Text style={styles.footerText}>THDS  - 5 Rue Pleyel, 93200 SAINT DENIS</Text>
         <Text style={styles.footerText}>Tél : 06 09 96 85 95 - Email : contact@thds.fr</Text>
       </View>
     </Page>
@@ -263,7 +263,7 @@ const ConvocationDocument = ({ data }) => (
           <Text style={styles.emailSigName}>{data.contactNom}</Text>
           <Text style={styles.emailSigRole}>Responsable Pédagogique</Text>
           <Image src="/logo.png" style={styles.emailSigLogo} />
-          <Text style={[styles.emailSigContact, {fontFamily: 'Helvetica-Bold', color: '#4c1d95'}]}>THDS LEARNING</Text>
+          <Text style={[styles.emailSigContact, {fontFamily: 'Helvetica-Bold', color: '#4c1d95'}]}>THDS </Text>
           <Text style={styles.emailSigContact}>VOTRE FUTUR, NOTRE SAVOIR</Text>
           <Text style={[styles.emailSigContact, {marginTop: 5}]}>Tél: {data.contactTel}</Text>
           <Text style={styles.emailSigContact}>Email: {data.contactEmail}</Text>

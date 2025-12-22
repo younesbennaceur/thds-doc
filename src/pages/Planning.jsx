@@ -30,7 +30,7 @@ const PlanningTemplate = React.forwardRef(({ data, sessions, totalHeures }, ref)
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: `2px solid ${c.purple}`, paddingBottom: '16px' }}>
         <img src="/logo.png" alt="Logo" style={{ width: '64px', height: 'auto', objectFit: 'contain' }} />
         <div style={{ textAlign: 'right' }}>
-          <h1 style={{ fontSize: '20px', fontWeight: 'bold', color: c.purple, textTransform: 'uppercase', margin: 0 }}>THDS LEARNING</h1>
+          <h1 style={{ fontSize: '20px', fontWeight: 'bold', color: c.purple, textTransform: 'uppercase', margin: 0 }}>THDS </h1>
           <p style={{ fontSize: '10px', color: c.textLight, margin: '4px 0 0 0' }}>5 Rue Pleyel, 93200 SAINT DENIS</p>
           <p style={{ fontSize: '10px', color: c.textLight, margin: '4px 0 0 0' }}>Mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
         </div>
@@ -116,13 +116,13 @@ const PlanningTemplate = React.forwardRef(({ data, sessions, totalHeures }, ref)
         <div style={{ width: '45%', border: `1px solid ${c.border}`, borderRadius: '6px', height: '120px', padding: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
           <p style={{ fontSize: '10px', color: c.textLight, textAlign: 'center', margin: 0 }}>Pour l'Organisme</p>
           <img src="/signature.png" alt="Signature" style={{ width: '100px', height: 'auto', objectFit: 'contain' }} />
-          <p style={{ fontSize: '10px', color: c.purple, fontWeight: 'bold', margin: 0 }}>THDS LEARNING</p>
+          <p style={{ fontSize: '10px', color: c.purple, fontWeight: 'bold', margin: 0 }}>THDS </p>
         </div>
       </div>
 
       {/* FOOTER */}
       <div style={{ borderTop: `1px solid ${c.borderLight}`, paddingTop: '12px', textAlign: 'center' }}>
-        <p style={{ fontSize: '8px', color: c.textLighter, margin: '0 0 2px 0' }}>THDS LEARNING - SAS au capital de 1000€ - SIRET : 832 774 087 00023</p>
+        <p style={{ fontSize: '8px', color: c.textLighter, margin: '0 0 2px 0' }}>THDS  - SAS au capital de 1000€ - SIRET : 832 774 087 00023</p>
         <p style={{ fontSize: '8px', color: c.textLighter, margin: 0 }}>Organisme de formation déclaré sous le n°11931056093 - contact@thds.fr</p>
       </div>
     </div>

@@ -56,7 +56,7 @@ const ConsentementDocument = ({ data }) => (
       <View style={styles.headerContainer}>
         <Image src="/logo.png" style={styles.logo} />
         <View style={styles.headerInfo}>
-          <Text style={styles.companyName}>THDS LEARNING</Text>
+          <Text style={styles.companyName}>THDS </Text>
           <Text style={styles.companySub}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
           <Text style={styles.companySub}>contact@thds.fr</Text>
         </View>
@@ -83,7 +83,7 @@ const ConsentementDocument = ({ data }) => (
       <View style={styles.linkBox}>
         <Text style={{fontFamily:'Helvetica-Bold', marginBottom:5, color:'#4c1d95'}}>Action requise :</Text>
         <Text>Si vous souhaitez être contacté, merci de cliquer sur le lien ci-dessous :</Text>
-        <Text style={styles.linkText}>https://forms.thds-learning.fr/consentement/{data.nom.toLowerCase()}-{data.prenom.toLowerCase()}</Text>
+        <Text style={styles.linkText}>https://forms.thds.fr/consentement/{data.nom.toLowerCase()}-{data.prenom.toLowerCase()}</Text>
       </View>
 
       <Text style={styles.paragraph}>
@@ -97,12 +97,12 @@ const ConsentementDocument = ({ data }) => (
         <Text style={{marginBottom:10}}>Bien à vous,</Text>
         <Image src="/signature.png" style={styles.sigImage} />
         <Text style={styles.sigName}>La Direction</Text>
-        <Text style={styles.sigRole}>THDS LEARNING</Text>
+        <Text style={styles.sigRole}>THDS </Text>
         <Text style={{fontSize:8, color:'#94a3b8'}}>Tél : 06 09 96 85 95</Text>
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>THDS LEARNING - 5 Rue Pleyel, 93200 SAINT DENIS - SIRET : 832 774 087 00023</Text>
+        <Text style={styles.footerText}>THDS  - 5 Rue Pleyel, 93200 SAINT DENIS - SIRET : 832 774 087 00023</Text>
       </View>
     </Page>
 
@@ -160,7 +160,7 @@ const ConsentementDocument = ({ data }) => (
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>Document généré automatiquement par le système d'information de THDS LEARNING.</Text>
+        <Text style={styles.footerText}>Document généré automatiquement par le système d'information de THDS .</Text>
       </View>
     </Page>
 
