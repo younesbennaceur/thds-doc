@@ -140,10 +140,8 @@ const ConvocationDocument = ({ data }) => (
       <View style={{ flexDirection: 'row', gap: 20 }}>
         <View style={{ flex: 1 }}>
           <Text style={styles.sectionTitle}>Informations Pratiques</Text>
-          <Text style={[styles.infoValue, {marginBottom: 5}]}>Seulement une cni ou pièces d’identité en cours de validité</Text>
-      
+          <Text style={[styles.infoValue, {marginBottom: 5}]}>Seulement une CNI ou pièces d'identité en cours de validité</Text>
         </View>
-       
       </View>
 
       <View style={{ marginTop: 15 }}>
@@ -191,10 +189,10 @@ const ConvocationDocument = ({ data }) => (
       
       {/* HEADER GMAIL STYLE */}
       <View style={{ backgroundColor: '#f8f9fa', padding: 10, marginBottom: 15, borderBottomWidth: 1, borderBottomColor: '#dadce0' }}>
-         <Image src="/gmail.png" style={styles.logo} />
+        <Image src="/gmail.png" style={styles.logo} />
       </View>
 
-      
+     
 
       {/* MESSAGE CONTAINER */}
       <View style={{ borderWidth: 1, borderColor: '#e8eaed', borderRadius: 8, overflow: 'hidden', backgroundColor: '#fff' }}>
@@ -225,8 +223,7 @@ const ConvocationDocument = ({ data }) => (
             </Text>
           </View>
 
-          {/* Show Details Link */}
-          <Text style={{ fontSize: 8, color: '#1f2937', marginBottom: 5 }}>Afficher les détails ▼</Text>
+          
 
           {/* Additional Headers */}
           <View style={{ backgroundColor: '#fff', padding: 8, marginTop: 8, borderRadius: 4 }}>
@@ -265,40 +262,80 @@ const ConvocationDocument = ({ data }) => (
           <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
             Vous trouverez le document officiel de convocation en pièce jointe de ce courriel.
           </Text>
+
           <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
-Venir 15 minutes avant avec la CNI ou une pièce d’identité en cours de validité, 102 rue du Port, 93300 Aubervilliers.          </Text>
+            Venir 15 minutes avant avec la CNI ou une pièce d'identité en cours de validité, 102 rue du Port, 93300 Aubervilliers.
+          </Text>
 
           <Text style={{ fontSize: 10, fontWeight: 'bold', lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
             Si désistement merci de nous prévenir
           </Text>
-           <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
             En cas de question, n'hésitez pas à me contacter directement.
           </Text>
           
-          
-
           <Text style={{ fontSize: 10, color: '#202124', marginBottom: 16 }}>Bien à vous,</Text>
 
           {/* SIGNATURE */}
-          <View style={{ borderTopWidth: 1, borderTopColor: '#e8eaed', paddingTop: 12, marginTop: 16 }}>
+          <View style={{ borderTopWidth: 1, borderTopColor: '#e8eaed', paddingTop: 12, marginTop: 8 }}>
             <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>{data.contactNom}</Text>
             <Text style={{ fontSize: 9, color: '#5f6368' }}>Responsable Pédagogique</Text>
             <Text style={{ fontSize: 9, color: '#5f6368', marginTop: 8 }}>THDS Formation</Text>
             <Text style={{ fontSize: 8, color: '#5f6368' }}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
             <Text style={{ fontSize: 8, color: '#5f6368' }}>{data.contactTel}</Text>
             <Text style={{ fontSize: 8, color: '#1f2937' }}>{data.contactEmail}</Text>
-            <Text style={{ fontSize: 8, color: '#5f6368' }}>https://thds.fr</Text>
           </View>
         </View>
 
-       
+       {/* ================= SECTION PIÈCE JOINTE : STYLE "CHIP" COMPACT ================= */}
+        <View style={{ paddingHorizontal: 16, paddingBottom: 20, paddingTop: 10, backgroundColor: '#fff' }}>
+          
+          <View style={{ 
+            flexDirection: 'row', 
+            alignItems: 'center', 
+            width: 260, // Largeur contenue, pas plein écran
+            backgroundColor: '#fff', 
+            borderWidth: 1, 
+            borderColor: '#dadce0', 
+            borderRadius: 4, 
+            padding: 8
+          }}>
+            
+            {/* 1. Petite Icône PDF Rouge */}
+            <View style={{ 
+              width: 26, 
+              height: 26, 
+              backgroundColor: '#ea4335', 
+              borderRadius: 3, 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              marginRight: 10
+            }}>
+               <Text style={{ color: '#fff', fontSize: 7, fontFamily: 'Helvetica-Bold' }}>PDF</Text>
+            </View>
+
+            {/* 2. Infos Fichier */}
+            <View style={{ flex: 1, justifyContent: 'center' }}>
+              <Text style={{ 
+                fontSize: 10, 
+                fontFamily: 'Helvetica-Bold', 
+                color: '#3c4043',
+                marginBottom: 2 
+              }} numberOfLines={1}>
+                Convocation-{data.nom}.pdf
+              </Text>
+              <Text style={{ fontSize: 9, color: '#5f6368' }}>254 Ko</Text>
+            </View>
+
+           
+
+          </View>
+        </View>
 
       </View>
 
-      {/* FOOTER - Gmail Style */}
-      <View style={{ marginTop: 15, paddingTop: 10, borderTopWidth: 1, borderTopColor: '#dadce0', alignItems: 'center' }}>
-        <Text style={{ fontSize: 7, color: '#5f6368', textAlign: 'center' }}>Ceci est une copie d'archivage administratif du courriel envoyé le {new Date().toLocaleDateString('fr-FR')}</Text>
-      </View>
+     
 
     </Page>
 
