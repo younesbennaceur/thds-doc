@@ -247,41 +247,41 @@ const ConvocationDocument = ({ data }) => (
         </View>
 
         {/* EMAIL BODY */}
-        <View style={{ paddingVertical: 20, paddingHorizontal: 16, backgroundColor: '#fff' }}>
+        <View style={{ paddingVertical: 12, paddingHorizontal: 16, backgroundColor: '#fff' }}>
           
-          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>Bonjour {data.prenom},</Text>
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>Bonjour {data.prenom},</Text>
           
-          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>
             J'ai le plaisir de vous transmettre votre convocation pour votre formation "{data.intituleFormation}".
           </Text>
 
-          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>
             Cette formation se déroulera du {new Date(data.dateDebut).toLocaleDateString('fr-FR')} au {new Date(data.dateFin).toLocaleDateString('fr-FR')}, à partir de {data.heureDebut}.
           </Text>
 
-          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
-            Vous trouverez le document officiel de convocation en pièce jointe de ce courriel.
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>
+            Vous trouverez le document officiel de convocation et planning complet des sessions de formation en pièce jointe de ce courriel  
           </Text>
 
-          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>
             Venir 15 minutes avant avec la CNI ou une pièce d'identité en cours de validité, 102 rue du Port, 93300 Aubervilliers.
           </Text>
 
-          <Text style={{ fontSize: 10, fontWeight: 'bold', lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+          <Text style={{ fontSize: 10, fontWeight: 'bold', lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>
             Si désistement merci de nous prévenir
           </Text>
 
-          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 12 }}>
+          <Text style={{ fontSize: 10, lineHeight: 1.6, color: '#202124', marginBottom: 8 }}>
             En cas de question, n'hésitez pas à me contacter directement.
           </Text>
           
-          <Text style={{ fontSize: 10, color: '#202124', marginBottom: 16 }}>Bien à vous,</Text>
+          <Text style={{ fontSize: 10, color: '#202124', marginBottom: 4 }}>Bien à vous,</Text>
 
           {/* SIGNATURE */}
-          <View style={{ borderTopWidth: 1, borderTopColor: '#e8eaed', paddingTop: 12, marginTop: 8 }}>
+          <View style={{ borderTopWidth: 1, borderTopColor: '#e8eaed', paddingTop: 12, marginTop: 4 }}>
             <Text style={{ fontSize: 10, fontFamily: 'Helvetica-Bold', color: '#202124' }}>{data.contactNom}</Text>
             <Text style={{ fontSize: 9, color: '#5f6368' }}>Responsable Pédagogique</Text>
-            <Text style={{ fontSize: 9, color: '#5f6368', marginTop: 8 }}>THDS Formation</Text>
+            <Text style={{ fontSize: 9, color: '#5f6368', marginTop: 3 }}>THDS Formation</Text>
             <Text style={{ fontSize: 8, color: '#5f6368' }}>5 Rue Pleyel, 93200 SAINT DENIS</Text>
             <Text style={{ fontSize: 8, color: '#5f6368' }}>{data.contactTel}</Text>
             <Text style={{ fontSize: 8, color: '#1f2937' }}>{data.contactEmail}</Text>
@@ -289,7 +289,7 @@ const ConvocationDocument = ({ data }) => (
         </View>
 
        {/* ================= SECTION PIÈCE JOINTE : STYLE "CHIP" COMPACT ================= */}
-        <View style={{ paddingHorizontal: 16, paddingBottom: 20, paddingTop: 10, backgroundColor: '#fff' }}>
+        <View style={{ paddingHorizontal: 16, paddingBottom: 10,  backgroundColor: '#fff' }}>
           
           <View style={{ 
             flexDirection: 'row', 
@@ -324,6 +324,47 @@ const ConvocationDocument = ({ data }) => (
                 marginBottom: 2 
               }} numberOfLines={1}>
                 Convocation-{data.nom}.pdf
+              </Text>
+              <Text style={{ fontSize: 9, color: '#5f6368' }}>254 Ko</Text>
+            </View>
+
+           
+
+          </View>
+          <View style={{ 
+            flexDirection: 'row', 
+            alignItems: 'center', 
+            width: 260, // Largeur contenue, pas plein écran
+            backgroundColor: '#fff', 
+            borderWidth: 1, 
+            borderColor: '#dadce0', 
+            borderRadius: 4, 
+            padding: 8
+            , marginTop: 8
+          }}>
+            
+            {/* 1. Petite Icône PDF Rouge */}
+            <View style={{ 
+              width: 26, 
+              height: 26, 
+              backgroundColor: '#ea4335', 
+              borderRadius: 3, 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              marginRight: 10
+            }}>
+               <Text style={{ color: '#fff', fontSize: 7, fontFamily: 'Helvetica-Bold' }}>PDF</Text>
+            </View>
+
+            {/* 2. Infos Fichier */}
+            <View style={{ flex: 1, justifyContent: 'center' }}>
+              <Text style={{ 
+                fontSize: 10, 
+                fontFamily: 'Helvetica-Bold', 
+                color: '#3c4043',
+                marginBottom: 2 
+              }} numberOfLines={1}>
+                Planning.pdf
               </Text>
               <Text style={{ fontSize: 9, color: '#5f6368' }}>254 Ko</Text>
             </View>
