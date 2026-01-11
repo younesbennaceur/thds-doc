@@ -247,7 +247,7 @@ const ConsentementDocument = ({ data }) => (
                 <Text style={{ fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#5f6368' }}>Consentement</Text>
               </View>
               <View style={{ width: '60%', padding: 8 }}>
-                <Text style={{ fontSize: 9, color: '#166534', fontFamily: 'Helvetica-Bold' }}>J'autorise par la présente l'organisme de formation IDRIFORM à procéder
+                <Text style={{ fontSize: 9, color: '#166534', fontFamily: 'Helvetica-Bold' }}>J'autorise par la présente l'organisme de formation THDS à procéder
 à des appels téléphoniques, des envois de courriels, ou tout autre moyen
 de communication.</Text>
               </View>
